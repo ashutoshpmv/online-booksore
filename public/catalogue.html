@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Catalogue</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Book Catalogue</h1>
+
+<table>
+    <tr>
+        <th>Book</th>
+        <th>Author</th>
+        <th>Publisher</th>
+        <th>Price</th>
+        <th>Add to Cart</th>
+    </tr>
+    <tr>
+        <td><img src=book1.jpg width=50px></td>
+        <td>Dr. V.M.Singh</td>
+        <td>Singh Publishers</td>
+        <td>Rs. 525</td>
+        <td><a href="#" class="add-to-cart" onclick="addToCart('CSE BOOK', 525, 'Dr.V.M.Singh', 'Singh Publishers')">Add</a></td>
+    </tr>
+    <tr>
+        <td><img src=book2.jpg width=50px></td>
+        <td>Kevin Mayne</td>
+        <td>3 Star Publishers</td>
+        <td>Rs. 320</td>
+        <td><a href="#" class="add-to-cart" onclick="addToCart('CSE BOOK', 320, 'Kevin Mayne', '3 Star Publishers')">Add</a></td>
+    </tr>
+ <tr>
+        <td><img src=book3.jpg width=50px></td>
+        <td>A.Rajkumar</td>
+        <td>Made Easy Publishers</td>
+        <td>Rs. 345</td>
+        <td><a href="#" class="add-to-cart" onclick="addToCart('ECE BOOK', 345, 'A.Rajkumar', 'Made Easy Publishers')">Add</a></td>
+    </tr>
+<tr>
+        <td><img src=book4.jpg width=50px></td>
+        <td>Abhishek</td>
+        <td>Made Easy Publishers</td>
+        <td>Rs. 445</td>
+        <td><a href="#" class="add-to-cart" onclick="addToCart('EEE BOOK', 445, 'Abhishek', 'Made Easy Publishers')">Add</a></td>
+    </tr>
+<tr>
+        <td><img src=book5.jpg width=50px></td>
+        <td>Kuldeep Singh</td>
+        <td>MS Master Publications</td>
+        <td>Rs. 620</td>
+        <td><a href="#" class="add-to-cart" onclick="addToCart('CIVIL BOOK', 620, 'Kuldeep Singh', 'MS Master Publications')">Add</a></td>
+    </tr>
+    
+</table>
+
+<script>
+    function addToCart(bookName, price, authorName, publisherName) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ bookName, price, authorName, publisherName });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(bookName + ' added to cart!');
+    }
+</script>
+
+</body>
+</html>
